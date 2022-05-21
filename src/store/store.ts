@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { booksApi } from '../redux/api/books.api';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: { [booksApi.reducerPath]: booksApi.reducer },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(booksApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;

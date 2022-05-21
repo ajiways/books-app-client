@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { BOOK, BOOK_CREATE, BOOK_EDIT, BOOK_LIST, BOOK_VIEW, HOME } from '.';
+import { BookEdit, BookList, BookView } from '../components';
 import { Book, Home } from '../pages';
 
 interface RouteInterface {
@@ -19,19 +20,19 @@ export const publicRoutes: RouteInterface[] = [
     childrens: [
       {
         path: BOOK_EDIT,
-        Component: Book,
+        Component: BookEdit,
       },
       {
         path: BOOK_CREATE,
-        Component: Book,
+        Component: BookEdit,
       },
       {
         path: BOOK_LIST,
-        Component: Book,
+        Component: BookList,
       },
       {
         path: BOOK_VIEW,
-        Component: Book,
+        Component: BookView,
       },
     ],
   },

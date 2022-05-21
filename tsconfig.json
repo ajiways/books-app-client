@@ -16,10 +16,10 @@
     "strictPropertyInitialization": false,
     "noEmit": true,
     "jsx": "react-jsx",
+    "baseUrl": "src",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@redux/*": ["src/redux/*"]
+      "@components/*": ["components/*"],
+      "@interfaces/*": ["interfaces/*"]
     }
   },
   "include": ["src"]

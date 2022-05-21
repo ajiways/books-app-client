@@ -15,12 +15,7 @@
     "isolatedModules": true,
     "strictPropertyInitialization": false,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "src",
-    "paths": {
-      "@components/*": ["components/*"],
-      "@interfaces/*": ["interfaces/*"]
-    }
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }

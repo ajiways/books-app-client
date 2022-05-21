@@ -1,0 +1,6 @@
+@mixin mainContainer($mWidth: $containerWidth, $padding: $pLeftRight) {
+  max-width: mWidth;
+  width: 100%;
+  padding: $padding;
+  margin: 0 auto;
+}

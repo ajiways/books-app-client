@@ -15,8 +15,8 @@ export const commentsApi = createApi({
       }),
       providesTags: ['Comments'],
     }),
-    createComment: builder.mutation<string, Omit<IComment, 'id'>>({
-      query: (comment: Omit<IComment, 'id'>) => ({
+    createComment: builder.mutation<string, Omit<IComment, '_id'>>({
+      query: (comment: Omit<IComment, '_id'>) => ({
         url: `comments`,
         method: 'POST',
         body: { ...comment },

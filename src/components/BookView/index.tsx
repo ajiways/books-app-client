@@ -1,12 +1,14 @@
 import { FC, HTMLAttributes, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { stylesFilter } from '../../helpers/styles.helper';
+import { Author } from '../../interfaces/author.interface';
 import { Book } from '../../interfaces/book.interface';
+import { useGetAuthorsByBookIdQuery } from '../../redux/api/authors.api';
 import { useGetBookByIdQuery } from '../../redux/api/books.api';
+import Authors from '../Authors';
 import CommentCreate from '../CommentCreate';
 import CommentList from '../CommentList';
 import { AppButton } from '../UI';
-// import Authors from '../Authors';
 import styles from './BookView.module.scss';
 
 const BookView: FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -19,6 +21,7 @@ const BookView: FC<HTMLAttributes<HTMLDivElement>> = ({
   const { id } = useParams();
 
   let bookData: Book | undefined = undefined;
+  let authorsData: Author[] = [];
 
   if (id) {
     const { data } = useGetBookByIdQuery(id);
@@ -31,6 +34,13 @@ const BookView: FC<HTMLAttributes<HTMLDivElement>> = ({
     }
   }, [bookData]);
 
+  if (id) {
+    const { data } = useGetAuthorsByBookIdQuery(id);
+    if (data) {
+      authorsData = data;
+    }
+  }
+
   return (
     <div className={bookViewStyles} {...props}>
       {book ? (
@@ -41,14 +51,15 @@ const BookView: FC<HTMLAttributes<HTMLDivElement>> = ({
               <p className={styles.description}>Описание: {book.description}</p>
             </div>
             <AppButton buttonType="update">
-              <Link to={`/book/edit/${book.id}`}>Редактировать</Link>
+              <Link to={`/book/edit/${book._id}`}>Редактировать</Link>
             </AppButton>
           </div>
-          {/* //TODO: implement */}
-          {/* <Authors authors={book.authors} /> */}
+          <div className={styles.authors}>
+            <Authors authors={authorsData} />
+          </div>
           <CommentList book={book} />
 
-          <CommentCreate bookId={book.id} />
+          <CommentCreate bookId={book._id} />
         </>
       ) : (
         <>

@@ -13,9 +13,12 @@ const Authors: FC<AuthorItemProps> = ({ className, authors, ...props }) => {
 
   return (
     <div className={authorStyles} {...props}>
-      {authors.map((author) => (
-        <AuthorItem author={author} />
-      ))}
+      <h3 className={styles.title}>Авторы:</h3>
+      {authors.length ? (
+        authors.map((author) => <AuthorItem key={author._id} author={author} />)
+      ) : (
+        <span>Авторов нет</span>
+      )}
     </div>
   );
 };

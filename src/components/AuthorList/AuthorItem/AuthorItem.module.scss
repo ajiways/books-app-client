@@ -1,6 +1,6 @@
 @import '../../../scss/variables.scss';
 
-.bookitem {
+.authoritem {
   border: 2px solid $border;
   display: flex;
   justify-content: space-between;
@@ -19,20 +19,4 @@
 
 .title {
   cursor: pointer;
-}
-
-.leftSide {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.authors {
-  display: flex;
-  flex-direction: row;
-  margin-right: 20px;
-}
-
-.authorsTitle {
-  margin-right: 10px;
 }

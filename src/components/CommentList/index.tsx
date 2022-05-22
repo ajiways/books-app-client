@@ -12,7 +12,7 @@ export interface CommentListProps extends HTMLAttributes<HTMLDivElement> {
 const CommentList: FC<CommentListProps> = ({ className, book, ...props }) => {
   const commentListStyles = stylesFilter([styles.commentlist, className]);
 
-  const { data } = useGetCommentsByBookIdQuery(book.id);
+  const { data } = useGetCommentsByBookIdQuery(book._id);
 
   return (
     <div className={commentListStyles} {...props}>
@@ -20,7 +20,7 @@ const CommentList: FC<CommentListProps> = ({ className, book, ...props }) => {
       <div>
         {data && data.length
           ? data.map((comment) => (
-              <CommentItem key={comment.id} comment={comment} />
+              <CommentItem key={comment._id} comment={comment} />
             ))
           : 'Комментариев еще нет...'}
       </div>

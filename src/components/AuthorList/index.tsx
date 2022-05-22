@@ -1,19 +1,19 @@
 import { FC, HTMLAttributes, useEffect, useState } from 'react';
 import { stylesFilter } from '../../helpers/styles.helper';
-import styles from './BookList.module.scss';
-import BookItem from './BookItem';
-import { useGetBooksQuery } from '../../redux/api/books.api';
+import { useGetAuthorsQuery } from '../../redux/api/authors.api';
 import { AppButton } from '../UI';
+import AuthorItem from './AuthorItem';
+import styles from './AuthorList.module.scss';
 
-const BookList: FC<HTMLAttributes<HTMLDivElement>> = ({
+const AuthorList: FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
   ...props
 }) => {
-  const bookListStyles = stylesFilter([styles.booklist, className]);
+  const authorListStyles = stylesFilter([styles.authorlist, className]);
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
 
-  const { data } = useGetBooksQuery(page);
+  const { data } = useGetAuthorsQuery(page);
 
   const perPage = 7;
 
@@ -34,11 +34,15 @@ const BookList: FC<HTMLAttributes<HTMLDivElement>> = ({
   };
 
   return (
-    <div className={bookListStyles} {...props}>
-      <h1 className={styles.pageTitle}>Список книг</h1>
-      {data && data.books.length ? (
-        data.books.map((book) => (
-          <BookItem className={styles.bookitem} key={book._id} book={book} />
+    <div className={authorListStyles} {...props}>
+      <h1 className="pageTitle">Список авторов</h1>
+      {data && data.authors.length ? (
+        data.authors.map((author) => (
+          <AuthorItem
+            className={styles.authoritem}
+            key={author._id}
+            author={author}
+          />
         ))
       ) : (
         <div> Пусто </div>
@@ -60,4 +64,4 @@ const BookList: FC<HTMLAttributes<HTMLDivElement>> = ({
   );
 };
 
-export default BookList;
+export default AuthorList;

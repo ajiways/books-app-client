@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import { stylesFilter } from '../../helpers/styles.helper';
 import { Book } from '../../interfaces/book.interface';
 import { useGetBookByIdQuery } from '../../redux/api/books.api';
+import CommentCreate from '../CommentCreate';
+import CommentList from '../CommentList';
 import { AppButton } from '../UI';
 // import Authors from '../Authors';
 import styles from './BookView.module.scss';
@@ -40,7 +42,10 @@ const BookView: FC<HTMLAttributes<HTMLDivElement>> = ({
           </AppButton>
           {/* //TODO: implement */}
           {/* <Authors authors={book.authors} /> */}
-          {/* <h4>Комментарии (%count%)</h4> */}
+          <h4>Комментарии</h4>
+          <CommentList book={book} />
+
+          <CommentCreate bookId={book.id} />
         </>
       ) : (
         <>

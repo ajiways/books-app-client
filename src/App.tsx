@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { AppRoutes } from 'components';
+import { AppRoutes, Header } from './components';
 
 const App: FC = () => {
   return (
     <>
+      <Header />
       <AppRoutes />
     </>
   );

@@ -1,5 +1,5 @@
 import { FC, SelectHTMLAttributes } from 'react';
-import { filter } from '../../../helpers/styles.helper';
+import { stylesFilter } from '../../../helpers/styles.helper';
 import styles from './AppSelect.module.scss';
 
 interface AppSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -7,7 +7,7 @@ interface AppSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 const AppSelect: FC<AppSelectProps> = ({ className, options, ...props }) => {
-  const selectStyles = filter([styles.appselect, className]);
+  const selectStyles = stylesFilter([styles.appselect, className]);
 
   return (
     <select className={selectStyles} {...props}>

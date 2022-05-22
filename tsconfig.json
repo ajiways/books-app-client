@@ -15,12 +15,7 @@
     "isolatedModules": true,
     "strictPropertyInitialization": false,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@redux/*": ["src/redux/*"]
-    }
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }

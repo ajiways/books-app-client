@@ -1,0 +1,28 @@
+@import '../../scss/variables.scss';
+
+.bookview {
+}
+
+.wrapper {
+  border: 1px solid $border;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 32px;
+  word-break: break-word;
+  margin-bottom: 10px;
+}
+
+.description {
+  word-break: break-word;
+}
+
+.authors {
+  border: 1px solid $border;
+  padding: 10px 0;
+}

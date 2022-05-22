@@ -18,10 +18,11 @@ const CommentList: FC<CommentListProps> = ({ className, book, ...props }) => {
     <div className={commentListStyles} {...props}>
       <h2>Список комментариев</h2>
       <div>
-        {data &&
-          data.map((comment) => (
-            <CommentItem key={comment.id} comment={comment} />
-          ))}
+        {data && data.length
+          ? data.map((comment) => (
+              <CommentItem key={comment.id} comment={comment} />
+            ))
+          : 'Комментариев еще нет...'}
       </div>
     </div>
   );

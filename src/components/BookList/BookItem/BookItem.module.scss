@@ -1,3 +1,22 @@
+@import '../../../scss/variables.scss';
+
 .bookitem {
-   
+  border: 2px solid $border;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete {
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.update {
+  font-size: 16px;
+}
+
+.title {
+  cursor: pointer;
 }

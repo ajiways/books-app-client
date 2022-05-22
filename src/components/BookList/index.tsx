@@ -15,7 +15,9 @@ const BookList: FC<HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div className={bookListStyles} {...props}>
       {data && data.length ? (
-        data.map((book) => <BookItem key={book._id} book={book} />)
+        data.map((book) => (
+          <BookItem className={styles.bookitem} key={book.id} book={book} />
+        ))
       ) : (
         <div> Пусто </div>
       )}

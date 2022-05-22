@@ -15,13 +15,13 @@ const Header: FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
       <div className="container">
         <div className={styles.inner}>
           {pathname === HOME ? (
-            <Link to={BOOK_CREATE}>
-              <AppButton>Добавить книгу</AppButton>
-            </Link>
+            <AppButton className={styles.primary}>
+              <Link to={BOOK_CREATE}>Добавить книгу</Link>
+            </AppButton>
           ) : (
-            <Link to={HOME}>
-              <AppButton>Домой</AppButton>
-            </Link>
+            <AppButton className={styles.primary}>
+              <Link to={HOME}>Домой</Link>
+            </AppButton>
           )}
         </div>
       </div>

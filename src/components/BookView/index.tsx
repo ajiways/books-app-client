@@ -1,9 +1,10 @@
 import { FC, HTMLAttributes, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { stylesFilter } from '../../helpers/styles.helper';
 import { Book } from '../../interfaces/book.interface';
 import { useGetBookByIdQuery } from '../../redux/api/books.api';
-import Authors from '../Authors';
+import { AppButton } from '../UI';
+// import Authors from '../Authors';
 import styles from './BookView.module.scss';
 
 const BookView: FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -34,11 +35,16 @@ const BookView: FC<HTMLAttributes<HTMLDivElement>> = ({
         <>
           <h2>{book.title}</h2>
           <p>{book.description}</p>
-          <Authors authors={book.authors} />
+          <AppButton>
+            <Link to={`/book/edit/${book.id}`}>Редактировать</Link>
+          </AppButton>
+          {/* //TODO: implement */}
+          {/* <Authors authors={book.authors} /> */}
+          {/* <h4>Комментарии (%count%)</h4> */}
         </>
       ) : (
         <>
-          //TODO: implement
+          {/* //TODO: implement */}
           <h2>404</h2>
           <h3>Такой книги нет</h3>
         </>

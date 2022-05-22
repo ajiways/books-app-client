@@ -1,2 +1,23 @@
+@import '../../../scss/variables.scss';
+
 .appbutton {
+  cursor: pointer;
+  outline: none;
+  border: 1px solid $border;
+  color: white;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.primary {
+  background-color: rgb(197, 197, 197);
+  color: black;
+}
+
+.update {
+  background-color: $green;
+}
+
+.delete {
+  background-color: $red;
 }

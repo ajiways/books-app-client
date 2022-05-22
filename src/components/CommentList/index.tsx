@@ -16,7 +16,7 @@ const CommentList: FC<CommentListProps> = ({ className, book, ...props }) => {
 
   return (
     <div className={commentListStyles} {...props}>
-      <h2>Список комментариев</h2>
+      <h2 className={styles.title}>Список комментариев</h2>
       <div>
         {data && data.length
           ? data.map((comment) => (

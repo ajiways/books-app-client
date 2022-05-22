@@ -28,6 +28,7 @@ const CommentCreate: FC<CreateCommentProps> = ({
 
   return (
     <div className={commentCreateStyles} {...props}>
+      <h2>Новый комментарий:</h2>
       <AppForm>
         <InputField
           placeholder="Автор"

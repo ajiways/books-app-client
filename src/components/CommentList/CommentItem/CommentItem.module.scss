@@ -1,3 +1,18 @@
+@import '../../../scss/variables.scss';
+
 .commentitem {
-   
+  border: 1px solid $border;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+
+.content {
+  word-break: break-word;
 }

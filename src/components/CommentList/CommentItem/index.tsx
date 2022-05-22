@@ -16,8 +16,8 @@ const CommentItem: FC<CommentItemProps> = ({
 
   return (
     <div className={commentItemStyles} {...props}>
-      <div>Автор :{comment.author}</div>
-      <div>Сообщение :{comment.content}</div>
+      <div className={styles.author}>Автор: {comment.author}</div>
+      <div className={styles.content}>Сообщение: {comment.content}</div>
     </div>
   );
 };

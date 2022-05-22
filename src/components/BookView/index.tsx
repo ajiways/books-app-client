@@ -46,7 +46,6 @@ const BookView: FC<HTMLAttributes<HTMLDivElement>> = ({
           </div>
           {/* //TODO: implement */}
           {/* <Authors authors={book.authors} /> */}
-          <h4 className={styles.commentListTitle}>Комментарии:</h4>
           <CommentList book={book} />
 
           <CommentCreate bookId={book.id} />

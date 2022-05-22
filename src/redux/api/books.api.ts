@@ -27,7 +27,10 @@ export const booksApi = createApi({
       providesTags: (result) =>
         result
           ? [
-              ...result.books.map(({ id }) => ({ type: 'Books' as const, id })),
+              ...result.books.map(({ _id: id }) => ({
+                type: 'Books' as const,
+                id,
+              })),
               { type: 'Books', id: 'PARTIAL-LIST' },
             ]
           : [{ type: 'Books', id: 'PARTIAL-LIST' }],
@@ -36,8 +39,8 @@ export const booksApi = createApi({
       query: (id: string) => `books/${id}`,
       providesTags: ['Books'],
     }),
-    createBook: builder.mutation<string, Omit<Book, 'authors' | 'id'>>({
-      query: (book: Omit<Book, 'authors' | 'id'>) => ({
+    createBook: builder.mutation<string, Omit<Book, 'authors' | '_id'>>({
+      query: (book: Omit<Book, 'authors' | '_id'>) => ({
         url: `books`,
         method: 'POST',
         body: { ...book },
@@ -60,6 +63,10 @@ export const booksApi = createApi({
       }),
       invalidatesTags: ['Books'],
     }),
+    getBooksByAuthorId: builder.query<Book[], string>({
+      query: (id: string) => `authors/books/${id}`,
+      providesTags: ['Books'],
+    }),
   }),
 });
 
@@ -69,4 +76,5 @@ export const {
   useCreateBookMutation,
   useDeleteBookMutation,
   useUpdateBookMutation,
+  useGetBooksByAuthorIdQuery,
 } = booksApi;

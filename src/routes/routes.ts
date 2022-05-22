@@ -1,7 +1,24 @@
 import { FC } from 'react';
-import { BOOK, BOOK_CREATE, BOOK_EDIT, BOOK_LIST, BOOK_VIEW, HOME } from '.';
-import { BookEdit, BookList, BookView } from '../components';
-import { Book, Home } from '../pages';
+import {
+  AUTHOR_CREATE,
+  AUTHOR_EDIT,
+  AUTHOR_LIST,
+  AUTHOR_VIEW,
+  BOOK_CREATE,
+  BOOK_EDIT,
+  BOOK_LIST,
+  BOOK_VIEW,
+  HOME,
+} from '.';
+import {
+  AuthorEdit,
+  AuthorList,
+  AuthorView,
+  BookEdit,
+  BookList,
+  BookView,
+} from '../components';
+import { Home } from '../pages';
 
 interface RouteInterface {
   path: string;
@@ -13,10 +30,6 @@ export const publicRoutes: RouteInterface[] = [
   {
     path: HOME,
     Component: Home,
-  },
-  {
-    path: BOOK,
-    Component: Book,
     childrens: [
       {
         path: BOOK_EDIT,
@@ -27,13 +40,17 @@ export const publicRoutes: RouteInterface[] = [
         Component: BookEdit,
       },
       {
-        path: BOOK_LIST,
-        Component: BookList,
-      },
-      {
         path: BOOK_VIEW,
         Component: BookView,
       },
+      {
+        path: BOOK_LIST,
+        Component: BookList,
+      },
+      { path: AUTHOR_CREATE, Component: AuthorEdit },
+      { path: AUTHOR_EDIT, Component: AuthorEdit },
+      { path: AUTHOR_VIEW, Component: AuthorView },
+      { path: AUTHOR_LIST, Component: AuthorList },
     ],
   },
 ];

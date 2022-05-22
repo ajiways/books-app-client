@@ -1,6 +1,9 @@
 export const HOME = '/';
-export const BOOK = '/book';
 export const BOOK_EDIT = '/book/edit/:id';
 export const BOOK_CREATE = '/book/create';
 export const BOOK_LIST = '/book/list';
-export const BOOK_VIEW = '/book/view/:id';
+export const BOOK_VIEW = '/book/list/item/:id';
+export const AUTHOR_CREATE = '/author/create';
+export const AUTHOR_EDIT = '/author/edit/:id';
+export const AUTHOR_VIEW = '/author/list/item/:id';
+export const AUTHOR_LIST = '/author/list';

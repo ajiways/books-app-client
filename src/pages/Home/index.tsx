@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes } from 'react';
-import { BookList } from '../../components';
+import { Outlet } from 'react-router-dom';
 import { stylesFilter } from '../../helpers/styles.helper';
 import styles from './Home.module.scss';
 
@@ -9,7 +9,7 @@ const Home: FC<HTMLAttributes<HTMLDivElement>> = ({ className }) => {
   return (
     <div className={homeStyles}>
       <div className="container">
-        <BookList />
+        <Outlet />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { BASE_URL } from '../../constants/constants';
 import { Book } from '../../interfaces/book.interface';
 
 interface BooksResponseInterface {
@@ -10,7 +11,7 @@ export const booksApi = createApi({
   reducerPath: 'booksApi',
   tagTypes: ['Books'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4000/',
+    baseUrl: BASE_URL,
   }),
   endpoints: (builder) => ({
     getBooks: builder.query<BooksResponseInterface, number>({

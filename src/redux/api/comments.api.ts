@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { BASE_URL } from '../../constants/constants';
 import { IComment } from '../../interfaces/comment.interface';
 
 export const commentsApi = createApi({
   reducerPath: 'commentsApi',
   tagTypes: ['Comments'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4000/',
+    baseUrl: BASE_URL,
   }),
   endpoints: (builder) => ({
     getCommentsByBookId: builder.query<IComment[], string>({

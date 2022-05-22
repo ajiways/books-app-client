@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import { stylesFilter } from '../../helpers/styles.helper';
 import { Book } from '../../interfaces/book.interface';
 import { useGetBookByIdQuery } from '../../redux/api/books.api';
+import CommentCreate from '../CommentCreate';
+import CommentList from '../CommentList';
 import { AppButton } from '../UI';
 // import Authors from '../Authors';
 import styles from './BookView.module.scss';
@@ -33,14 +35,21 @@ const BookView: FC<HTMLAttributes<HTMLDivElement>> = ({
     <div className={bookViewStyles} {...props}>
       {book ? (
         <>
-          <h2>{book.title}</h2>
-          <p>{book.description}</p>
-          <AppButton>
-            <Link to={`/book/edit/${book.id}`}>Редактировать</Link>
-          </AppButton>
+          <div className={styles.wrapper}>
+            <div>
+              <h2 className={styles.title}>Название книги: {book.title}</h2>
+              <p className={styles.description}>Описание: {book.description}</p>
+            </div>
+            <AppButton buttonType="update">
+              <Link to={`/book/edit/${book.id}`}>Редактировать</Link>
+            </AppButton>
+          </div>
           {/* //TODO: implement */}
           {/* <Authors authors={book.authors} /> */}
-          {/* <h4>Комментарии (%count%)</h4> */}
+          <h4 className={styles.commentListTitle}>Комментарии:</h4>
+          <CommentList book={book} />
+
+          <CommentCreate bookId={book.id} />
         </>
       ) : (
         <>

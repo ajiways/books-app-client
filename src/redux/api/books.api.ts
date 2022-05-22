@@ -24,7 +24,7 @@ export const booksApi = createApi({
       //     totalCount: Number(meta?.response?.headers.get('X-Total-Count')),
       //   };
       // },
-      providesTags: (result, error, page) =>
+      providesTags: (result) =>
         result
           ? [
               ...result.books.map(({ id }) => ({ type: 'Books' as const, id })),
@@ -50,10 +50,7 @@ export const booksApi = createApi({
         body: { id },
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, id) => [
-        { type: 'Books', id },
-        { type: 'Books', id: 'PARTIAL-LIST' },
-      ],
+      invalidatesTags: ['Books'],
     }),
     updateBook: builder.mutation<string, Omit<Book, 'authors'>>({
       query: (book: Omit<Book, 'authors'>) => ({
